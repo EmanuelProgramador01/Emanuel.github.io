@@ -1,39 +1,39 @@
 const LESMAS = [
   {
-    name:"Burpy",
+    name:"Infurnus",
     type:"Fogo",
     habitat:"Cavernas de magma",
     desc:"Uma das lesmas mais poderosas, domina o fogo com intensidade.",
     skills:"Explosão de magma, Lança-chamas",
     rarity:"Lendária",
-    imageNormal:"https://upload.wikimedia.org/wikipedia/en/3/3f/BurpySlug.png",
-    imageTransform:"https://upload.wikimedia.org/wikipedia/en/4/48/Burpy_Slug_Transform.png",
-    imageMegamorfoNormal:"https://upload.wikimedia.org/wikipedia/en/0/0b/Burpy_Megamorfo.png",
-    imageMegamorfoTransform:"https://upload.wikimedia.org/wikipedia/en/1/15/Burpy_Megamorfo_Transform.png"
+    imageNormal:"https://static.wikia.nocookie.net/slugterra/images/3/3f/BurpySlug.png",
+    imageTransform:"https://static.wikia.nocookie.net/slugterra/images/4/48/Burpy_Slug_Transform.png",
+    imageMegamorfoNormal:"https://static.wikia.nocookie.net/slugterra/images/0/0b/Burpy_Megamorfo.png",
+    imageMegamorfoTransform:"https://static.wikia.nocookie.net/slugterra/images/1/15/Burpy_Megamorfo_Transform.png"
   },
   {
-    name:"Pronto",
+    name:"Molenoid",
     type:"Água",
     habitat:"Rios subterrâneos",
     desc:"Lesma rápida, controla água e correntes.",
     skills:"Jato d'água, Hidroescudo",
     rarity:"Rara",
-    imageNormal:"https://upload.wikimedia.org/wikipedia/en/f/f1/Pronto_Slug.png",
-    imageTransform:"https://upload.wikimedia.org/wikipedia/en/5/5e/Pronto_Transform.png",
-    imageMegamorfoNormal:"https://upload.wikimedia.org/wikipedia/en/d/d3/Pronto_Megamorfo.png",
-    imageMegamorfoTransform:"https://upload.wikimedia.org/wikipedia/en/2/24/Pronto_Megamorfo_Transform.png"
+    imageNormal:"https://static.wikia.nocookie.net/slugterra/images/f/f1/Pronto_Slug.png",
+    imageTransform:"https://static.wikia.nocookie.net/slugterra/images/5/5e/Pronto_Transform.png",
+    imageMegamorfoNormal:"https://static.wikia.nocookie.net/slugterra/images/d/d3/Pronto_Megamorfo.png",
+    imageMegamorfoTransform:"https://static.wikia.nocookie.net/slugterra/images/2/24/Pronto_Megamorfo_Transform.png"
   },
   {
-    name:"Chomper",
+    name:"Terra",
     type:"Terra",
     habitat:"Túneis e cavernas",
     desc:"Fortemente blindada, resistente a ataques físicos.",
     skills:"Mordida pesada, Terremoto",
     rarity:"Comum",
-    imageNormal:"https://upload.wikimedia.org/wikipedia/en/2/28/Chomper_Slug.png",
-    imageTransform:"https://upload.wikimedia.org/wikipedia/en/3/30/Chomper_Transform.png",
-    imageMegamorfoNormal:"https://upload.wikimedia.org/wikipedia/en/5/55/Chomper_Megamorfo.png",
-    imageMegamorfoTransform:"https://upload.wikimedia.org/wikipedia/en/7/7c/Chomper_Megamorfo_Transform.png"
+    imageNormal:"https://static.wikia.nocookie.net/slugterra/images/2/28/Chomper_Slug.png",
+    imageTransform:"https://static.wikia.nocookie.net/slugterra/images/3/30/Chomper_Transform.png",
+    imageMegamorfoNormal:"https://static.wikia.nocookie.net/slugterra/images/5/55/Chomper_Megamorfo.png",
+    imageMegamorfoTransform:"https://static.wikia.nocookie.net/slugterra/images/7/7c/Chomper_Megamorfo_Transform.png"
   }
 ];
 
@@ -102,15 +102,3 @@ btnNormalTransform.addEventListener("click", () => {
 });
 
 btnNormalMegamorfo.addEventListener("click", () => {
-  if(!currentLesma) return;
-  toggleStateNM = !toggleStateNM;
-  modalImg.src = toggleStateNM ? currentLesma.imageMegamorfoTransform : currentLesma.imageMegamorfoNormal;
-});
-
-renderCatalog(LESMAS);
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase();
-  const filtered = LESMAS.filter(l => l.name.toLowerCase().includes(query));
-  renderCatalog(filtered);
-});
