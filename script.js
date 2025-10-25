@@ -1,3 +1,4 @@
+// Array com as lesmas
 const LESMAS = [
   {
     name:"Burpy",
@@ -37,6 +38,7 @@ const LESMAS = [
   }
 ];
 
+// Seleciona elementos do DOM
 const catalog = document.getElementById("catalog");
 const searchInput = document.getElementById("search");
 
@@ -76,11 +78,12 @@ function renderCatalog(items){
     `;
 
     card.addEventListener("click", () => openModal(l));
+
     catalog.appendChild(card);
   });
 }
 
-// Função para abrir o modal
+// Abre o modal
 function openModal(lesma){
   currentLesma = lesma;
   toggleStateNT = false;
@@ -95,7 +98,7 @@ function openModal(lesma){
   modal.classList.add("show");
 }
 
-// Fechar modal
+// Fecha o modal
 modalClose.addEventListener("click", () => modal.classList.remove("show"));
 modal.addEventListener("click", (e) => {
   if(e.target === modal) modal.classList.remove("show");
