@@ -56,6 +56,7 @@ let currentLesma = null;
 let toggleStateNT = false; // Normal/Transformada
 let toggleStateNM = false; // Normal/Megamorfo
 
+// Renderiza os cards do catálogo
 function renderCatalog(items){
   catalog.innerHTML = "";
   if(items.length === 0){
@@ -63,4 +64,63 @@ function renderCatalog(items){
     return;
   }
   items.forEach(l => {
-    const card
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <img src="${l.imageNormal}" alt="${l.name}" />
+      <div class="card-body">
+        <h3 class="card-title">${l.name}</h3>
+        <p class="card-type">${l.type}</p>
+      </div>
+    `;
+
+    card.addEventListener("click", () => openModal(l));
+    catalog.appendChild(card);
+  });
+}
+
+// Função para abrir o modal
+function openModal(lesma){
+  currentLesma = lesma;
+  toggleStateNT = false;
+  toggleStateNM = false;
+  modalImg.src = lesma.imageNormal;
+  modalName.textContent = lesma.name;
+  modalType.textContent = lesma.type;
+  modalHabitat.textContent = lesma.habitat;
+  modalDesc.textContent = lesma.desc;
+  modalSkills.textContent = lesma.skills;
+  modalRarity.textContent = lesma.rarity;
+  modal.classList.add("show");
+}
+
+// Fechar modal
+modalClose.addEventListener("click", () => modal.classList.remove("show"));
+modal.addEventListener("click", (e) => {
+  if(e.target === modal) modal.classList.remove("show");
+});
+
+// Botão Normal / Transformada
+btnNormalTransform.addEventListener("click", () => {
+  if(!currentLesma) return;
+  toggleStateNT = !toggleStateNT;
+  modalImg.src = toggleStateNT ? currentLesma.imageTransform : currentLesma.imageNormal;
+});
+
+// Botão Normal / Megamorfo
+btnNormalMegamorfo.addEventListener("click", () => {
+  if(!currentLesma) return;
+  toggleStateNM = !toggleStateNM;
+  modalImg.src = toggleStateNM ? currentLesma.imageMegamorfoTransform : currentLesma.imageMegamorfoNormal;
+});
+
+// Inicializa o catálogo
+renderCatalog(LESMAS);
+
+// Busca em tempo real
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  const filtered = LESMAS.filter(l => l.name.toLowerCase().includes(query));
+  renderCatalog(filtered);
+});
