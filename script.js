@@ -52,8 +52,8 @@ const btnNormalMegamorfo = document.getElementById("btn-normal-megamorfo");
 const modalClose = document.getElementById("modal-close");
 
 let currentLesma = null;
-let toggleStateNT = false;
-let toggleStateNM = false;
+let toggleStateNT = false; // Normal/Transformada
+let toggleStateNM = false; // Normal/Megamorfo
 
 function renderCatalog(items){
   catalog.innerHTML = "";
@@ -98,7 +98,22 @@ modal.addEventListener("click", (e) => {
 btnNormalTransform.addEventListener("click", () => {
   if(!currentLesma) return;
   toggleStateNT = !toggleStateNT;
+  toggleStateNM = false;
   modalImg.src = toggleStateNT ? currentLesma.imageTransform : currentLesma.imageNormal;
 });
 
 btnNormalMegamorfo.addEventListener("click", () => {
+  if(!currentLesma) return;
+  toggleStateNM = !toggleStateNM;
+  toggleStateNT = false;
+  modalImg.src = toggleStateNM ? currentLesma.imageMegamorfoTransform : currentLesma.imageMegamorfoNormal;
+});
+
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const filtered = LESMAS.filter(l => l.name.toLowerCase().includes(searchTerm) || l.type.toLowerCase().includes(searchTerm));
+  renderCatalog(filtered);
+});
+
+// Inicializa o catálogo
+renderCatalog(LESMAS);
