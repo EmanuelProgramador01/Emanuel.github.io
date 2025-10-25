@@ -1,51 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo de Lesmas Subterrâneas</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Lesmas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Lesmas Subterrâneas</h1>
-      <input type="search" id="search" placeholder="Pesquisar lesmas..." />
-    </div>
+  <header>
+    <h1>Catálogo de Lesmas</h1>
+    <input type="text" id="search" placeholder="Buscar lesma...">
   </header>
 
-  <main class="container">
-    <section id="catalog" class="catalog-grid">
-      <!-- Cards gerados pelo JS -->
-    </section>
+  <main id="catalog">
+    <!-- Cards das lesmas serão gerados pelo JS -->
   </main>
 
-  <!-- Modal / Painel -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop"></div>
-    <div class="modal-panel">
-      <button id="modal-close" class="modal-close">×</button>
-      <div class="modal-content">
-        <img id="modal-img" src="" alt="Imagem da lesma" />
-        <div class="modal-info">
-          <h2 id="modal-name"></h2>
-          <p><strong>Tipo:</strong> <span id="modal-type"></span></p>
-          <p><strong>Habitat:</strong> <span id="modal-habitat"></span></p>
-          <p id="modal-desc"></p>
-          <p><strong>Habilidades:</strong> <span id="modal-skills"></span></p>
-          <p><strong>Raridade:</strong> <span id="modal-rarity"></span></p>
-          <div class="modal-buttons">
-            <button id="btn-normal-transform">Normal / Transformada</button>
-            <button id="btn-normal-megamorfo">Normal / Megamorfo</button>
-          </div>
-        </div>
-      </div>
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close" class="close">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h2 id="modal-name"></h2>
+      <p><strong>Tipo:</strong> <span id="modal-type"></span></p>
+      <p><strong>Habitat:</strong> <span id="modal-habitat"></span></p>
+      <p><strong>Descrição:</strong> <span id="modal-desc"></span></p>
+      <p><strong>Habilidades:</strong> <span id="modal-skills"></span></p>
+      <p><strong>Raridade:</strong> <span id="modal-rarity"></span></p>
+      <button id="btn-normal-transform">Normal / Transformada</button>
+      <button id="btn-normal-megamorfo">Normal / Megamorfo</button>
     </div>
   </div>
-
-  <footer class="site-footer">
-    <p>Catálogo de Lesmas Subterrâneas — criado por Emanuel</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
