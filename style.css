@@ -1,18 +1,47 @@
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-  text-align: center;
-  padding-top: 50px;
-}
-button {
-  background: white;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-button:hover {
-  background: #eee;
+/* Reset básico */
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; font-family: Inter, sans-serif; color:#F1FAEE; background:#0D1B2A; }
+
+/* Container */
+.container { max-width:1100px; margin:0 auto; padding:20px; }
+
+/* Header */
+.site-header { padding:20px 0; display:flex; align-items:center; gap:20px; }
+.logo { font-size:24px; color:#00B4D8; font-weight:700; }
+#search { flex:1; padding:10px; border-radius:8px; border:none; outline:none; }
+
+/* Grid de cards */
+.catalog-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:16px; margin-top:20px; }
+
+/* Card */
+.card { background:#1B263B; border-radius:12px; overflow:hidden; cursor:pointer; transition: transform .2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5);}
+.card:hover { transform: translateY(-6px); }
+.card img { width:100%; height:160px; object-fit:cover; }
+.card-body { padding:10px; }
+.card-title { font-weight:700; color:#00B4D8; margin-bottom:4px; }
+.card-type { font-size:14px; color:#A9B2C3; }
+
+/* Modal */
+.modal { display:none; position:fixed; inset:0; align-items:center; justify-content:center; z-index:100; }
+.modal.show { display:flex; }
+.modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.7); }
+.modal-panel { position:relative; z-index:101; max-width:900px; width:100%; }
+.modal-content { display:flex; gap:20px; background:#1B263B; padding:20px; border-radius:12px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);}
+.modal-content img { width:300px; height:250px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,0.1);}
+.modal-info { flex:1; }
+.modal-info h2 { color:#00B4D8; margin-bottom:10px; }
+.modal-buttons { margin-top:12px; display:flex; gap:10px; }
+.modal-buttons button { padding:8px 14px; border:none; border-radius:8px; cursor:pointer; background:#00B4D8; color:#0D1B2A; font-weight:700; transition:0.2s;}
+.modal-buttons button:hover { background:#9EF01A; color:#0D1B2A; }
+
+/* Close button */
+.modal-close { position:absolute; top:8px; right:8px; font-size:28px; background:transparent; border:none; color:#F1FAEE; cursor:pointer; }
+
+/* Footer */
+.site-footer { text-align:center; padding:10px 0; color:#A9B2C3; position:fixed; bottom:0; width:100%; }
+
+/* Responsividade */
+@media (max-width:800px) {
+  .modal-content { flex-direction:column; }
+  .modal-content img { width:100%; height:200px; }
 }
